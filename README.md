@@ -1,5 +1,5 @@
 # Recsys2018
-Final model for the 2018 Recys challenge
+Final model for the 2018 Recys challenge by the team STORMtroopers
 
 Our solutions can be reproduced as follows:
 
