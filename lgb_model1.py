@@ -59,7 +59,7 @@ class LGB_Model1:
 
 		self.vectorizers=[tv1,tv2,tv3,tv4,tv5,tv6,tv7,tv8,tv9,tv10,tv11]
 
-	def fit(self,playlist_info,playlists,track_info_dict,num_boost_round,early_stopping_rounds,number_of_samples,FPs,num_seed_track = 0,verbose_eval=1,tuning=False,test_size=0.2,seed=134):
+	def fit(self,playlist_info,playlists,track_info_dict,num_boost_round,early_stopping_rounds,number_of_samples,FPs,num_seed_track = 0,verbose_eval=1,tuning=True,test_size=0.2,seed=134):
 
 		Subsampled_data_frame = Henry_sampler(playlists,seed,number_of_samples,FPs,num_seed_track,len(self.list_to_try),False)
 
