@@ -21,11 +21,14 @@ track_info = pd.read_csv("data/track_info.csv",encoding = "latin-1")
 #map artist to songs by artist
 with open('data/Album_to_songs', 'rb') as handle:
     Album_to_song_dict = pickle.load(handle)
+
 with open('data/Artist_to_songs', 'rb') as handle:
     Artist_to_song_dict = pickle.load(handle)
+
 #load list of most frequent
 with open('data/most_frequent_tracks', 'rb') as handle:
     Most_frequent = pickle.load(handle)
+    
 
 #put into lists for fast access
 Album_to_song_list=list(Album_to_song_dict.values())

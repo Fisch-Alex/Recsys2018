@@ -4,18 +4,21 @@ import pickle
 import csv
 from collections import Counter
 
+import os
+os.chdir(os.path.expanduser('~/Spotify'))
 
 
 #load data
-Playlist_info=pd.read_csv("./Spotify/data/playlists_info.csv", encoding = "ISO-8859-1")
-Track_info=pd.read_csv("./Spotify/data/track_info.csv", encoding = "ISO-8859-1")
+Playlist_info=pd.read_csv("data/playlists_info.csv", encoding = "ISO-8859-1")
+Track_info=pd.read_csv("data/track_info.csv", encoding = "ISO-8859-1")
 
 Playlists=[]
 for i in range(0,1000):
-    with open('./data/Playlists/playlists'+str(i)+'.csv', 'r') as f:
-        reader = csv.reader(f)
-        Playlists=Playlists+list(reader)
-Playlists= [x for x in Playlists if x != []]    
+	with open('data/Playlists/playlists'+str(i)+'.csv', 'r') as f:
+		reader = csv.reader(f)
+		Playlists=Playlists+list(reader)
+
+Playlists = [x for x in Playlists if x != []]    
 
 
 
@@ -37,11 +40,12 @@ mostfrequent=[x[0] for x in mostfrequent]
 
 #save dataset
 #save as pickle
-with open('./Spotify/data/Album_to_songs', 'wb') as handle:
+with open('data/Album_to_songs', 'wb') as handle:
     pickle.dump(Album_to_song_dict,handle)
     
-with open('./Spotify/data/Artist_to_songs', 'wb') as handle:
-    pickle.load(Artist_to_song_dict,handle)
+ 
+with open('data/Artist_to_songs', 'wb') as handle:
+    pickle.dump(Artist_to_song_dict,handle)
 
-with open('./Spotify/data/most_frequent_tracks', 'wb') as handle:
-    pickle.load(Artist_to_song_dict,handle)
+with open('data/most_frequent_tracks', 'wb') as handle:
+    pickle.dump(mostfrequent,handle)
